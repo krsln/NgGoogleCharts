@@ -1,0 +1,12 @@
+{
+  "name": "@qrsln/google-charts-angular",
+  "version": "24.8.8-beta.1",
+  "peerDependencies": {
+    "@angular/common": "^18.1.0",
+    "@angular/core": "^18.1.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}
