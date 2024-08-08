@@ -7,7 +7,19 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:NgGoogleCharts": "node dist/ng-google-charts/server/server.mjs"
+    "serve:ssr:NgGoogleCharts": "node dist/ng-google-charts/server/server.mjs",
+    "/************        LootstrapNg~         ************/": " --- / --- ",
+    "GoogleChartsNg-build": "ng-packagr -p projects/google-charts-angular/ng-package.json",
+    "GoogleChartsNg-pack": "cd dist/google-charts-angular && npm pack",
+    "GoogleChartsNg": "npm-run-all GoogleChartsNg-build GoogleChartsNg-pack",
+    "/************        ~LootstrapNg         ************/": " --- / --- ",
+    "GET:tgz": "forfiles /p dist /S /M qrsln-*.tgz /C \"cmd /c echo @path\" 2>nul" ,
+    "p:live": "forfiles /p dist /S /M qrsln-*.tgz /C \"cmd /c npm publish @file --access public\" 2>nul",
+    "p:beta": "forfiles /p dist /S /M qrsln-*.tgz /C \"cmd /c npm publish @file --tag beta --access public\" 2>nul",
+    "/************        Publish~         ************/": " --- / --- ",
+    "Publish:live": "npm-run-all LootstrapNg p:live",
+    "Publish:beta": "npm-run-all LootstrapNg p:beta",
+    "/************        ~Publish         ************/": " --- / --- "
   },
   "private": true,
   "dependencies": {
@@ -40,6 +52,7 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "ng-packagr": "^18.1.0",
+    "npm-run-all": "^4.1.5",
     "typescript": "~5.5.2"
   }
 }

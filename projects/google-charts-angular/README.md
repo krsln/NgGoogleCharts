@@ -1,24 +1,52 @@
 # GoogleChartsAngular
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.0.
+> A wrapper for the [Google Charts library](https://google-developers.appspot.com/chart/) written in Angular.
 
-## Code scaffolding
 
-Run `ng generate component component-name --project GoogleChartsAngular` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project GoogleChartsAngular`.
-> Note: Don't forget to add `--project GoogleChartsAngular` or else it will be added to the default project in your `angular.json` file. 
+## Install
 
-## Build
+With [npm](https://npmjs.org/) installed, run
 
-Run `ng build GoogleChartsAngular` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+npm install @qrsln/GoogleChartsAngular
+```
 
-## Publishing
+## Usage
 
-After building your library with `ng build GoogleChartsAngular`, go to the dist folder `cd dist/google-charts-angular` and run `npm publish`.
+Import the `GoogleChartsModule` in your `app.module.ts`:
 
-## Running unit tests
+```typescript
+import { GoogleChartsModule } from 'angular-google-charts';
 
-Run `ng test GoogleChartsAngular` to execute the unit tests via [Karma](https://karma-runner.github.io).
+@NgModule({
+  ...
+  imports: [
+    ...
+    GoogleChartsModule,
+    ...
+  ],
+  ...
+})
+export class AppModule {}
+```
 
-## Further help
+And create a `GoogleChart` component somewhere in your application:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```html
+<GoogleChart
+  [title]="chart.title"
+  [type]="chart.type"
+  [data]="chart.data"
+  [columns]="chart.columnNames"
+  [options]="chart.options"
+>
+</GoogleChart>
+```
+
+## Detailed Instructions
+
+Find the full readme at [GitHub](https://github.com/krsln/NgGoogleCharts).
+
+## License
+
+MIT
