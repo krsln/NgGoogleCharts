@@ -37,7 +37,7 @@ And create a `GoogleChart` component somewhere in your application:
   [title]="chart.title"
   [type]="chart.type"
   [data]="chart.data"
-  [columns]="chart.columnNames"
+  [columns]="chart.columns"
   [options]="chart.options"
 >
 </GoogleChart>

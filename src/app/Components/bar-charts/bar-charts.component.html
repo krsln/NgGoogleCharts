@@ -1,0 +1,165 @@
+<div class="Container">
+  <div class="Row">
+    <div class="Col-12 Col-lg-12">
+
+      <div class="Card Card-body">
+        <h3 class="Card-title">Bar Charts</h3>
+        <a href="https://developers.google.com/chart/interactive/docs/gallery/barchart" target="_blank">Google Charts</a>
+      </div>
+
+      <div class="Card Card-body">
+        <h4 class="Card-title">A Simple Example</h4>
+        <GoogleChart style="width: 100%; height: 500px;"
+                     [type]="simple.type" [options]="simple.options"
+                     [columns]="simple.columns" [data]="simple.data"></GoogleChart>
+        <div class="MB-2">
+      <textarea Highlighter [Lang]="'html'">
+        <GoogleChart style="width: 100%; height: 500px;"
+                     [type]="simple.type" [options]="simple.options"
+                     [columns]="simple.columns" [data]="simple.data"></GoogleChart>
+      </textarea>
+        </div>
+        <div class="MB-2">
+        <textarea Highlighter [Lang]="'typescript'">
+  simple = {
+    type: ChartType.BarChart,
+    options: {},
+    columns: ['Element', 'Density'],
+    data: [
+      ['Copper', 8.94],
+      ['Silver', 10.49],
+      ['Gold', 19.30],
+      ['Platinum', 21.45],
+    ],
+  };
+        </textarea>
+        </div>
+      </div>
+
+      <div class="Card Card-body">
+        <h4 class="Card-title">Coloring bars</h4>
+        <GoogleChart style="width: 100%; height: 500px;"
+                     [type]="coloring.type" [options]="coloring.options"
+                     [columns]="coloring.columns" [data]="coloring.data"></GoogleChart>
+        <div class="MB-2">
+      <textarea Highlighter [Lang]="'html'">
+        <GoogleChart style="width: 100%; height: 500px;"
+                     [type]="coloring.type" [options]="coloring.options"
+                     [columns]="coloring.columns" [data]="coloring.data"></GoogleChart>
+      </textarea>
+        </div>
+        <div class="MB-2">
+        <textarea Highlighter [Lang]="'typescript'">
+  coloring = {
+    type: ChartType.BarChart,
+    options: {},
+    columns: ['Element', 'Density', {role: 'style'}],
+    data: [
+      ['Copper', 8.94, '#b87333'],            // RGB value
+      ['Silver', 10.49, 'silver'],            // English color name
+      ['Gold', 19.30, 'gold'],
+      ['Platinum', 21.45, 'color: #e5e4e2'], // CSS-style declaration
+    ],
+  };
+        </textarea>
+        </div>
+      </div>
+
+      <div class="Card Card-body">
+        <h4 class="Card-title">Bar styles</h4>
+        <GoogleChart style="width: 100%; height: 500px;"
+                     [type]="styled.type" [options]="styled.options"
+                     [columns]="styled.columns" [data]="styled.data"></GoogleChart>
+        <div class="MB-2">
+      <textarea Highlighter [Lang]="'html'">
+        <GoogleChart style="width: 100%; height: 500px;"
+                     [type]="styled.type" [options]="styled.options"
+                     [columns]="styled.columns" [data]="styled.data"></GoogleChart>
+      </textarea>
+        </div>
+        <div class="MB-2">
+        <textarea Highlighter [Lang]="'typescript'">
+  styled = {
+    type: ChartType.BarChart,
+    options: {},
+    columns: ['Year', 'Visitations', {role: 'style'}],
+    data: [
+      ['2010', 10, 'color: gray'],
+      ['2020', 14, 'color: #76A7FA'],
+      ['2030', 16, 'opacity: 0.2'],
+      ['2040', 22, 'stroke-color: #703593; stroke-width: 4; fill-color: #C5A5CF'],
+      ['2050', 28, 'stroke-color: #871B47; stroke-opacity: 0.6; stroke-width: 8; fill-color: #BC5679; fill-opacity: 0.2']
+    ],
+  };
+        </textarea>
+        </div>
+      </div>
+
+      <div class="Card Card-body">
+        <h4 class="Card-title">Labeling bars</h4>
+        <GoogleChart style="width: 100%; height: 500px;"
+                     [type]="labeling.type" [options]="labeling.options"
+                     [columns]="labeling.columns" [data]="labeling.data"></GoogleChart>
+        <div class="MB-2">
+      <textarea Highlighter [Lang]="'html'">
+        <GoogleChart style="width: 100%; height: 500px;"
+                     [type]="labeling.type" [options]="labeling.options"
+                     [columns]="labeling.columns" [data]="labeling.data"></GoogleChart>
+      </textarea>
+        </div>
+        <div class="MB-2">
+        <textarea Highlighter [Lang]="'typescript'">
+  labeling = {
+    type: ChartType.BarChart,
+    options: {},
+    columns: ['Element', 'Density', {role: 'style'}, {role: 'annotation'}],
+    data: [
+      ['Copper', 8.94, '#b87333', 'Cu'],
+      ['Silver', 10.49, 'silver', 'Ag'],
+      ['Gold', 19.30, 'gold', 'Au'],
+      ['Platinum', 21.45, 'color: #e5e4e2', 'Pt']
+    ],
+  };
+        </textarea>
+        </div>
+      </div>
+
+      <div class="Card Card-body">
+        <h4 class="Card-title">Creating Material bar charts</h4>
+        <GoogleChart style="width: 100%; height: 500px;"
+                     [type]="material.type" [options]="material.options"
+                     [columns]="material.columns" [data]="material.data"></GoogleChart>
+        <div class="MB-2">
+      <textarea Highlighter [Lang]="'html'">
+        <GoogleChart style="width: 100%; height: 500px;"
+                     [type]="material.type" [options]="material.options"
+                     [columns]="material.columns" [data]="material.data"></GoogleChart>
+      </textarea>
+        </div>
+        <div class="MB-2">
+        <textarea Highlighter [Lang]="'typescript'">
+  material = {
+    type: ChartType.BarChart,
+    options: {
+      chart: {
+        title: 'Company Performance',
+        subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+      },
+      bars: 'horizontal' // Required for Material Bar Charts.
+    },
+    columns:  ['Year', 'Sales', 'Expenses', 'Profit'],
+    data: [
+      ['2014', 1000, 400, 200],
+      ['2015', 1170, 460, 250],
+      ['2016', 660, 1120, 300],
+      ['2017', 1030, 540, 350]
+    ],
+  };
+        </textarea>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

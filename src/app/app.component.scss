@@ -1,0 +1,24 @@
+@import "@qrsln/lootstrap/scss/lootstrap";
+
+body {
+  min-height: 1250px;
+}
+
+.Tree-trunk {
+  max-height: 100% !important;
+}
+
+.Sidenav-fixed {
+  .Sidenav-container {
+    top: 58px; /* Navbar height */
+
+    .Sidenav {
+      position: fixed;
+      top: 58px; /* Navbar height */
+
+      padding-top: 10px;
+      padding-left: 10px;
+      padding-bottom: 10px;
+    }
+  }
+}
