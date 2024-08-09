@@ -1,0 +1,33 @@
+{
+  "routes": [
+    "/AreaCharts",
+    "/BarCharts",
+    "/BubbleCharts",
+    "/CalendarCharts",
+    "/CandlestickCharts",
+    "/ColumnCharts",
+    "/ComboCharts",
+    "/DiffCharts",
+    "/DonutCharts",
+    "/GanttCharts",
+    "/GaugeCharts",
+    "/GeoCharts",
+    "/Histograms",
+    "/Intervals",
+    "/LineCharts",
+    "/Maps",
+    "/MiscellaneousExamples",
+    "/OrgCharts",
+    "/PieCharts",
+    "/SankeyDiagrams",
+    "/ScatterCharts",
+    "/SteppedAreaCharts",
+    "/TableCharts",
+    "/Timelines",
+    "/TreeMapCharts",
+    "/Trendlines",
+    "/VegaChart",
+    "/WaterfallCharts",
+    "/WordTrees"
+  ]
+}
