@@ -1,6 +1,6 @@
 {
   "name": "@qrsln/google-charts-angular",
-  "version": "24.8.9-beta.2",
+  "version": "24.8.9-beta.3",
   "description": "A wrapper for the Google Charts library written with Angular",
   "keywords": [
     "Angular",

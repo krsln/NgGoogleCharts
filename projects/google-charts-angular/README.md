@@ -35,6 +35,24 @@ import { GoogleChartsModule } from 'angular-google-charts';
 })
 export class AppModule {}
 ```
+> OR  
+
+Import the `provideGoogleCharts` in your `app.config.ts`:
+
+```typescript
+import {provideGoogleCharts} from "@qrsln/google-charts-angular";
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    // ...
+    provideGoogleCharts({
+      version: 'current',
+      safeMode: true,
+      mapsApiKey: 'your-api-key'
+    }),
+  ]
+};
+```
 
 And create a `GoogleChart` component somewhere in your application:
 
