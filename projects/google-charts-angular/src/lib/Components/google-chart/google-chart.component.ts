@@ -164,7 +164,7 @@ export class GoogleChartComponent implements ChartBase, OnInit, OnChanges, OnDes
 
   public ngOnInit() {
     // We don't need to load any chart packages, the chart wrapper will handle this for us
-    this.scriptLoaderService.loadChartPackages(getPackageForChart(this.type)).subscribe(() => {
+    this.scriptLoaderService.loadChartPackages(getPackageForChart(this.type))?.subscribe(() => {
       this.dataTable = this.dataTableService.create(this.data, this.columns, this.formatters);
 
       // Only ever create the wrapper once to allow animations to happen when something changes.

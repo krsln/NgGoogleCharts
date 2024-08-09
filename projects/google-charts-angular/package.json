@@ -22,6 +22,9 @@
     "name": "Krsln",
     "email": "...@gmail.com"
   },
+  "scripts": {
+    "init": "npm i --legacy-peer-deps"
+  },
   "peerDependencies": {
     "@angular/common": ">=14.0.0 ",
     "@angular/core": ">=14.0.0"

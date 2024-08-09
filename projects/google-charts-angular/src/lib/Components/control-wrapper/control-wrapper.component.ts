@@ -16,10 +16,10 @@ import {ScriptLoaderService} from "../../Services/script-loader.service";
 import {generateRandomId} from "../../Helpers";
 
 @Component({
-  selector: 'ql-control-wrapper, ControlWrapper',
+  selector: 'ql-control-wrapper, NgControlWrapper, ControlWrapper',
   template: '',
   host: { class: 'control-wrapper' },
-  exportAs: 'controlWrapper',
+  exportAs: 'ControlWrapper',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ControlWrapperComponent implements OnInit, OnChanges {
@@ -123,7 +123,7 @@ export class ControlWrapperComponent implements OnInit, OnChanges {
   }
 
   public ngOnInit() {
-    this.loaderService.loadChartPackages('controls').subscribe(() => {
+    this.loaderService.loadChartPackages('controls')?.subscribe(() => {
       this.createControlWrapper();
     });
   }

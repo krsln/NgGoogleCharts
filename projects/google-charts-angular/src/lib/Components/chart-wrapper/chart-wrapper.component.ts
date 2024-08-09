@@ -16,11 +16,11 @@ import {ChartErrorEvent, ChartReadyEvent, ChartSelectionChangedEvent} from "../.
 import {ScriptLoaderService} from "../../Services/script-loader.service";
 
 @Component({
-  selector: 'ql-chart-wrapper, ChartWrapper',
+  selector: 'ql-chart-wrapper, NgChartWrapper, ChartWrapper',
   template: '',
   styles: [':host { width: fit-content; display: block; }'],
   host: {class: 'chart-wrapper'},
-  exportAs: 'chartWrapper',
+  exportAs: 'ChartWrapper',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChartWrapperComponent implements ChartBase, OnChanges, OnInit {
@@ -74,7 +74,7 @@ export class ChartWrapperComponent implements ChartBase, OnChanges, OnInit {
 
   public ngOnInit() {
     // We don't need to load any chart packages, the chart wrapper will handle this else for us
-    this.scriptLoaderService.loadChartPackages().subscribe(() => {
+    this.scriptLoaderService.loadChartPackages()?.subscribe(() => {
       if (!this.specs) {
         this.specs = {} as google.visualization.ChartSpecs;
       }

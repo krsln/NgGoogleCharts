@@ -6,7 +6,7 @@ import {ChartBase} from "../../Models/ChartBase";
 import {ChartEditorRef} from "./ChartEditorRef";
 
 @Component({
-  selector: 'ql-chart-editor, ChartEditor',
+  selector: 'ql-chart-editor, NgChartEditor, ChartEditor',
   template: `
     <ng-content></ng-content>`,
   host: {class: 'chart-editor'},
@@ -27,7 +27,7 @@ export class ChartEditorComponent implements OnInit {
   }
 
   public ngOnInit() {
-    this.scriptLoaderService.loadChartPackages('charteditor').subscribe(() => {
+    this.scriptLoaderService.loadChartPackages('charteditor')?.subscribe(() => {
       this.editor = new google.visualization.ChartEditor();
       this.initializedSubject.next(this.editor);
       this.initializedSubject.complete();

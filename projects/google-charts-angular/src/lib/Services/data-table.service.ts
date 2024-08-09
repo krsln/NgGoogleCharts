@@ -3,10 +3,6 @@ import {Injectable} from '@angular/core';
 import {Formatter} from "../Models/Formatter";
 import {Column, Row} from "../Models/ChartBase";
 
-@Injectable({
-  providedIn: 'root'
-})
-
 @Injectable({providedIn: 'root'})
 export class DataTableService {
   public create(

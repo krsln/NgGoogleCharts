@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
-import {GoogleChartsModule} from "../../../../projects/google-charts-angular/src/lib/google-charts.module";
 import {HighlighterModule} from "@qrsln/highlighter";
-import {ChartType} from "../../../../projects/google-charts-angular/src/lib/Models/Enums";
+import {ChartType, GoogleChartsModule} from "@qrsln/google-charts-angular";
 
 @Component({
   selector: 'app-bar-charts',

@@ -1,1 +1,45 @@
-<p>gauge-charts works!</p>
+<div class="Container">
+  <div class="Row">
+    <div class="Col-12 Col-lg-12">
+
+      <div class="Card Card-body">
+        <h3 class="Card-title">Visualization: Gauge</h3>
+        <a href="https://developers.google.com/chart/interactive/docs/gallery/gauge" target="_blank">Google Charts</a>
+      </div>
+
+      <div class="Card Card-body">
+        <h4 class="Card-title">Example</h4>
+        <GoogleChart
+                     [type]="simple.type" [options]="simple.options"
+                     [columns]="simple.columns" [data]="simple.data"></GoogleChart>
+        <div class="MB-2">
+      <textarea Highlighter [Lang]="'html'">
+        <GoogleChart
+                     [type]="simple.type" [options]="simple.options"
+                     [columns]="simple.columns" [data]="simple.data"></GoogleChart>
+      </textarea>
+        </div>
+        <div class="MB-2">
+        <textarea Highlighter [Lang]="'typescript'">
+  simple = {
+    type: ChartType.Gauge,
+    options: {
+      width: 400, height: 120,
+      redFrom: 90, redTo: 100,
+      yellowFrom:75, yellowTo: 90,
+      minorTicks: 5
+    },
+    columns: ['Label', 'Value'],
+    data: [
+      ['Memory', 80],
+      ['CPU', 55],
+      ['Network', 68]
+    ],
+  };
+        </textarea>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

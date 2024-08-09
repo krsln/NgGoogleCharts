@@ -1,55 +1,150 @@
-<!--<div class="Container">-->
-<!--  <div class="Row">-->
-<!--    <div class="Col-12 Col-lg-12">-->
+<div class="Container">
+  <div class="Row">
+    <div class="Col-12 Col-lg-12">
 
-<!--      <div class="Card Card-body">-->
-<!--        <h3 class="Card-title">Calendar Chart</h3>-->
-<!--        <a href="https://developers.google.com/chart/interactive/docs/gallery/calendar" target="_blank">Google Charts</a>-->
-<!--      </div>-->
+      <div class="Card Card-body">
+        <h3 class="Card-title">Visualization: Column Chart</h3>
+        <a href="https://developers.google.com/chart/interactive/docs/gallery/columnchart" target="_blank">Google
+          Charts</a>
+      </div>
 
-<!--      <div class="Card Card-body">-->
-<!--        <h4 class="Card-title">A Simple Example</h4>-->
-<!--        <GoogleChart style="width: 100%;"-->
-<!--                     [type]="simple.type" [options]="simple.options"-->
-<!--                     [columns]="simple.columns" [data]="simple.data"></GoogleChart>-->
-<!--        <div class="MB-2">-->
-<!--      <textarea Highlighter [Lang]="'html'">-->
-<!--        <GoogleChart style="width: 100%; height: 500px;"-->
-<!--                     [type]="simple.type" [options]="simple.options"-->
-<!--                     [columns]="simple.columns" [data]="simple.data"></GoogleChart>-->
-<!--      </textarea>-->
-<!--        </div>-->
-<!--        <div class="MB-2">-->
-<!--        <textarea Highlighter [Lang]="'typescript'">-->
-<!--  simple = {-->
-<!--    type: ChartType.Calendar,-->
-<!--    options: {-->
-<!--      title: "Red Sox Attendance",-->
-<!--      height: 350,-->
-<!--    },-->
-<!--    columns:-->
-<!--      [{ type: 'date', id: 'Date' },{ type: 'number', id: 'Won/Loss' }],-->
-<!--    data: [-->
-<!--      [ new Date(2024, 10, 13), 37032 ],-->
-<!--      [ new Date(2024, 10, 14), 38024 ],-->
-<!--      [ new Date(2024, 10, 25), 38024 ],-->
-<!--      [ new Date(2024, 10, 26), 38108 ],-->
-<!--      [ new Date(2024, 10, 27), 38229 ],-->
-<!--      // Many rows omitted for brevity.-->
-<!--      [ new Date(2025, 1, 4), 38177 ],-->
-<!--      [ new Date(2025, 1, 5), 38705 ],-->
-<!--      [ new Date(2025, 1, 12), 38210 ],-->
-<!--      [ new Date(2025, 1, 13), 38029 ],-->
-<!--      [ new Date(2025, 1, 19), 38823 ],-->
-<!--      [ new Date(2025, 1, 23), 38345 ],-->
-<!--      [ new Date(2025, 1, 24), 38436 ],-->
-<!--      [ new Date(2025, 1, 30), 38447 ]-->
-<!--    ],-->
-<!--  };-->
-<!--        </textarea>-->
-<!--        </div>-->
-<!--      </div>-->
+      <div class="Card Card-body">
+        <h4 class="Card-title">Coloring columns</h4>
 
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
+        <div class="Row">
+          <div class="Col-12 Col-lg-6">
+            <GoogleChart style="width: 100%; height: 300px;"
+                         [type]="simple.type" [options]="simple.options"
+                         [columns]="simple.columns" [data]="simple.data"></GoogleChart>
+          </div>
+          <div class="Col-12 Col-lg-6">
+            <GoogleChart style="width: 100%; height: 300px;"
+                         [type]="coloring.type" [options]="coloring.options"
+                         [columns]="coloring.columns" [data]="coloring.data"></GoogleChart>
+          </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="MB-2">
+      <textarea Highlighter [Lang]="'html'">
+        <div class="Row">
+          <div class="Col-12 Col-lg-6">
+            <GoogleChart style="width: 100%; height: 300px;"
+                         [type]="simple.type" [options]="simple.options"
+                         [columns]="simple.columns" [data]="simple.data"></GoogleChart>
+          </div>
+          <div class="Col-12 Col-lg-6">
+            <GoogleChart style="width: 100%; height: 300px;"
+                         [type]="coloring.type" [options]="coloring.options"
+                         [columns]="coloring.columns" [data]="coloring.data"></GoogleChart>
+          </div>
+        </div>
+      </textarea>
+        </div>
+        <div class="MB-2">
+        <textarea Highlighter [Lang]="'typescript'">
+  simple = {
+    type: ChartType.ColumnChart,
+    options: {
+      title: "Red Sox Attendance",
+      height: 350,
+    },
+    columns:
+      ['Element', 'Density' ],
+    data: [
+      ['Copper',  8.94, ],
+      ['Silver',  10.49,],
+      ['Gold',    19.30,],
+      ['Platinum', 21.45 ],
+    ],
+  };
+
+  coloring  = {
+    type: ChartType.ColumnChart,
+    options: {
+      title: "Red Sox Attendance",
+      height: 350,
+    },
+    columns:
+      ['Element', 'Density', { role: 'style' }],
+    data: [
+      ['Copper',  8.94, '#b87333'],            // RGB value
+      ['Silver',  10.49, 'silver'],            // English color name
+      ['Gold',    19.30, 'gold'],
+      ['Platinum', 21.45, 'color: #e5e4e2' ], // CSS-style declaration
+    ],
+  };
+        </textarea>
+        </div>
+      </div>
+
+      <div class="Card Card-body">
+        <h4 class="Card-title">Column styles & Labeling columns</h4>
+
+        <div class="Row">
+          <div class="Col-12 Col-lg-6">
+            <GoogleChart style="width: 100%; height: 300px;"
+                         [type]="styled.type" [options]="styled.options"
+                         [columns]="styled.columns" [data]="styled.data"></GoogleChart>
+          </div>
+          <div class="Col-12 Col-lg-6">
+            <GoogleChart style="width: 100%; height: 300px;"
+                         [type]="labeling.type" [options]="labeling.options"
+                         [columns]="labeling.columns" [data]="labeling.data"></GoogleChart>
+          </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="MB-2">
+      <textarea Highlighter [Lang]="'html'">
+        <div class="Row">
+          <div class="Col-12 Col-lg-6">
+            <GoogleChart style="width: 100%; height: 300px;"
+                         [type]="styled.type" [options]="styled.options"
+                         [columns]="styled.columns" [data]="styled.data"></GoogleChart>
+          </div>
+          <div class="Col-12 Col-lg-6">
+            <GoogleChart style="width: 100%; height: 300px;"
+                         [type]="labeling.type" [options]="labeling.options"
+                         [columns]="labeling.columns" [data]="labeling.data"></GoogleChart>
+          </div>
+        </div>
+      </textarea>
+        </div>
+        <div class="MB-2">
+        <textarea Highlighter [Lang]="'typescript'">
+  styled = {
+    type: ChartType.ColumnChart,
+    options: { },
+    columns:
+      ['Year', 'Visitations', { role: 'style' } ],
+    data: [
+      ['2010', 10, 'color: gray'],
+      ['2020', 14, 'color: #76A7FA'],
+      ['2030', 16, 'opacity: 0.2'],
+      ['2040', 22, 'stroke-color: #703593; stroke-width: 4; fill-color: #C5A5CF'],
+      ['2050', 28, 'stroke-color: #871B47; stroke-opacity: 0.6; stroke-width: 8; fill-color: #BC5679; fill-opacity: 0.2']
+    ],
+  };
+
+  labeling  = {
+    type: ChartType.ColumnChart,
+    options: {  },
+    columns:
+      ['Element', 'Density', { role: 'style' }, { role: 'annotation' } ],
+    data: [
+      ['Copper', 8.94, '#b87333', 'Cu' ],
+      ['Silver', 10.49, 'silver', 'Ag' ],
+      ['Gold', 19.30, 'gold', 'Au' ],
+      ['Platinum', 21.45, 'color: #e5e4e2', 'Pt' ]
+    ]
+  };
+        </textarea>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -8,7 +8,6 @@ import {CandlestickChartsComponent} from "./Components/candlestick-charts/candle
 import {ColumnChartsComponent} from "./Components/column-charts/column-charts.component";
 import {ComboChartsComponent} from "./Components/combo-charts/combo-charts.component";
 import {DiffChartsComponent} from "./Components/diff-charts/diff-charts.component";
-import {DonutChartsComponent} from "./Components/donut-charts/donut-charts.component";
 import {GanttChartsComponent} from "./Components/gantt-charts/gantt-charts.component";
 import {GaugeChartsComponent} from "./Components/gauge-charts/gauge-charts.component";
 import {HistogramsComponent} from "./Components/histograms/histograms.component";
@@ -28,7 +27,7 @@ import {WordTreesComponent} from "./Components/word-trees/word-trees.component";
 import {MiscellaneousExamplesComponent} from "./Components/miscellaneous-examples/miscellaneous-examples.component";
 import {ScatterChartsComponent} from "./Components/scatter-charts/scatter-charts.component";
 import {SteppedAreaChartsComponent} from "./Components/stepped-area-charts/stepped-area-charts.component";
-
+import {AppComponent} from "./app.component";
 
 export const routes: Routes = [
   {path: 'AreaCharts', component: AreaChartsComponent},
@@ -39,7 +38,7 @@ export const routes: Routes = [
   {path: 'ColumnCharts', component: ColumnChartsComponent},
   {path: 'ComboCharts', component: ComboChartsComponent},
   {path: 'DiffCharts', component: DiffChartsComponent},
-  {path: 'DonutCharts', component: DonutChartsComponent},
+  {path: 'DonutCharts', data: {}, component: PieChartsComponent}, // todo: redirect pieChart#donut
   {path: 'GanttCharts', component: GanttChartsComponent},
   {path: 'GaugeCharts', component: GaugeChartsComponent},
   {path: 'GeoCharts', component: GeoChartsComponent},
@@ -60,5 +59,11 @@ export const routes: Routes = [
   {path: 'WaterfallCharts', component: WaterfallChartsComponent},
   {path: 'WordTrees', component: WordTreesComponent},
   {path: 'MiscellaneousExamples', component: MiscellaneousExamplesComponent},
+
+  {
+    path: '', component: AppComponent, children: [
+      {path: '', redirectTo: '/AreaCharts', pathMatch: 'full'}
+    ]
+  },
 
 ];

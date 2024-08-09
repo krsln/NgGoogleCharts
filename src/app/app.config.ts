@@ -3,7 +3,7 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
-import {provideGoogleCharts} from "../../projects/google-charts-angular/src/lib/google-charts.module";
+import {provideGoogleCharts} from "@qrsln/google-charts-angular";
 
 export const appConfig: ApplicationConfig = {
   providers: [

@@ -1,5 +1,5 @@
-import {Inject, Injectable, LOCALE_ID, NgZone} from '@angular/core';
-import {DOCUMENT} from "@angular/common";
+import {Inject, Injectable, LOCALE_ID, NgZone, PLATFORM_ID} from '@angular/core';
+import {DOCUMENT, isPlatformBrowser} from "@angular/common";
 import {Observable, of, Subject} from 'rxjs';
 import {map, mergeMap, switchMap} from 'rxjs/operators';
 
@@ -13,6 +13,7 @@ export class ScriptLoaderService {
 
   constructor(
     private zone: NgZone,
+    @Inject(PLATFORM_ID) private platformId: Object,
     @Inject(DOCUMENT) private document: Document,
     @Inject(LOCALE_ID) private localeId: string,
     @Inject(GOOGLE_CHARTS_LAZY_CONFIG) private readonly config$: Observable<GoogleChartsConfig>
@@ -40,31 +41,34 @@ export class ScriptLoaderService {
    * @param packages The packages to load.
    * @returns A stream emitting as soon as the chart packages are loaded.
    */
-  public loadChartPackages(...packages: string[]): Observable<null> {
-    return this.loadGoogleCharts().pipe(
-      mergeMap(() => this.config$),
-      map(config => {
-        return {...getDefaultConfig(), ...(config || {})};
-      }),
-      switchMap((googleChartsConfig: GoogleChartsConfig) => {
-        return new Observable<null>(observer => {
-          const config = {
-            packages,
-            language: this.localeId,
-            mapsApiKey: googleChartsConfig.mapsApiKey,
-            safeMode: googleChartsConfig.safeMode
-          };
+  public loadChartPackages(...packages: string[]): Observable<null> | null {
+    if (isPlatformBrowser(this.platformId)) {
+      return this.loadGoogleCharts().pipe(
+        mergeMap(() => this.config$),
+        map(config => {
+          return {...getDefaultConfig(), ...(config || {})};
+        }),
+        switchMap((googleChartsConfig: GoogleChartsConfig) => {
+          return new Observable<null>(observer => {
+            const config = {
+              packages,
+              language: this.localeId,
+              mapsApiKey: googleChartsConfig.mapsApiKey,
+              safeMode: googleChartsConfig.safeMode
+            };
 
-          google.charts.load(googleChartsConfig.version!, config).then();
-          google.charts.setOnLoadCallback(() => {
-            this.zone.run(() => {
-              observer.next();
-              observer.complete();
+            google.charts.load(googleChartsConfig.version!, config).then();
+            google.charts.setOnLoadCallback(() => {
+              this.zone.run(() => {
+                observer.next();
+                observer.complete();
+              });
             });
           });
-        });
-      })
-    );
+        })
+      );
+    }
+    return null;
   }
 
   /**
@@ -77,36 +81,23 @@ export class ScriptLoaderService {
     if (this.isGoogleChartsAvailable()) {
       return of(undefined);
     } else if (!this.isLoadingGoogleCharts()) {
-      // const script = this.createGoogleChartsScript();
-      // script.onload = () => {
-      //   this.zone.run(() => {
-      //     this.scriptLoadSubject.next();
-      //     this.scriptLoadSubject.complete();
-      //   });
-      // };
-      //
-      // script.onerror = () => {
-      //   this.zone.run(() => {
-      //     console.error('Failed to load the google charts script!');
-      //     this.scriptLoadSubject.error(new Error('Failed to load the google charts script!'));
-      //   });
-      // };
-      this.loadScript(this.scriptSource).then(script => {
-        script.onload = () => {
-          this.zone.run(() => {
-            this.scriptLoadSubject.next();
-            this.scriptLoadSubject.complete();
-          });
-        };
+      if (isPlatformBrowser(this.platformId)) {
+        this.loadScript(this.scriptSource).then(script => {
+          script.onload = () => {
+            this.zone.run(() => {
+              this.scriptLoadSubject.next();
+              this.scriptLoadSubject.complete();
+            });
+          };
 
-        script.onerror = () => {
-          this.zone.run(() => {
-            console.error('Failed to load the google charts script!');
-            this.scriptLoadSubject.error(new Error('Failed to load the google charts script!'));
-          });
-        };
-      });
-
+          script.onerror = () => {
+            this.zone.run(() => {
+              console.error('Failed to load the google charts script!');
+              this.scriptLoadSubject.error(new Error('Failed to load the google charts script!'));
+            });
+          };
+        });
+      }
     }
 
     return this.scriptLoadSubject.asObservable();
@@ -120,15 +111,6 @@ export class ScriptLoaderService {
     const pageScripts = Array.from(this.document.getElementsByTagName('script'));
     return pageScripts.find(script => script.src === this.scriptSource);
   }
-
-  // private createGoogleChartsScript(): HTMLScriptElement {
-  //   const script = this.document.createElement('script');
-  //   script.type = 'text/javascript';
-  //   script.src = this.scriptSource;
-  //   script.async = true;
-  //   this.document.getElementsByTagName('head')[0].appendChild(script);
-  //   return script;
-  // }
 
   private loadScript(src: string, async: boolean = true, defer: boolean = true): Promise<HTMLScriptElement> {
     return new Promise((resolve, reject) => {

@@ -6,6 +6,7 @@ declare namespace google {
       dataSourceInput?: HTMLElement | 'urlbox';
     }
 
+    // @ts-ignore
     export class ChartEditor {
       public openDialog(chartWrapper: google.visualization.ChartWrapper, options: ChartEditorOptions): void;
       public getChartWrapper(): google.visualization.ChartWrapper;

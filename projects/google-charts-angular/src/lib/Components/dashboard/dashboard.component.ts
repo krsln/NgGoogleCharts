@@ -20,10 +20,10 @@ import {ScriptLoaderService} from "../../Services/script-loader.service";
 import {DataTableService} from "../../Services/data-table.service";
 
 @Component({
-  selector: 'ql-dashboard, Dashboard',
+  selector: 'ql-dashboard, NgDashboard, Dashboard',
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  exportAs: 'dashboard',
+  exportAs: 'Dashboard',
   host: { class: 'dashboard' }
 })
 export class DashboardComponent implements OnInit, OnChanges {
@@ -84,7 +84,7 @@ export class DashboardComponent implements OnInit, OnChanges {
   ) {}
 
   public ngOnInit() {
-    this.loaderService.loadChartPackages('controls').subscribe(() => {
+    this.loaderService.loadChartPackages('controls')?.subscribe(() => {
       this.dataTable = this.dataTableService.create(this.data, this.columns, this.formatters);
       this.createDashboard();
       this.initialized = true;
