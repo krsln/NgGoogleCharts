@@ -24,8 +24,11 @@ export enum ChartType {
   Table = 'Table',
   Timeline = 'Timeline',
   TreeMap = 'TreeMap',
+  TrendLines = 'TrendLines',
+  VegaChart = 'VegaChart',
   WordTree = 'wordtree'
 }
+
 export enum FilterType {
   Category = 'CategoryFilter',
   ChartRange = 'ChartRangeFilter',

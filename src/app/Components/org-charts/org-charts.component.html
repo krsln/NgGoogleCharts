@@ -1,1 +1,47 @@
-<p>org-charts works!</p>
+<div class="Container">
+  <div class="Row">
+    <div class="Col-12 Col-lg-12">
+
+      <div class="Card Card-body">
+        <h3 class="Card-title">Organization Chart</h3>
+        <a href="https://developers.google.com/chart/interactive/docs/gallery/orgchart" target="_blank">Google Charts</a>
+      </div>
+
+      <div class="Card Card-body">
+        <h4 class="Card-title">A Simple Example</h4>
+        <GoogleChart style="width: 100%;"
+                     [type]="simple.type" [options]="simple.options"
+                     [columns]="simple.columns" [data]="simple.data"></GoogleChart>
+        <div class="MB-2">
+      <textarea Highlighter [Lang]="'html'">
+        <GoogleChart style="width: 100%;"
+                     [type]="simple.type" [options]="simple.options"
+                     [columns]="simple.columns" [data]="simple.data"></GoogleChart>
+      </textarea>
+        </div>
+        <div class="MB-2">
+        <textarea Highlighter [Lang]="'typescript'">
+  simple = {
+    type: ChartType.OrgChart,
+    options: {'allowHtml':true },
+    columns:
+      [
+        { type: 'string', id: 'Name' },
+        { type: 'string', id: 'Manager' },
+        { type: 'string', id: 'ToolTip' }
+      ],
+    data: [
+      [{ v: 'Mike', f:  (`Mike<div style="color:red; font-style:italic">President</div>`) }, '', 'The President'],
+      [{ v: 'Jim', f:  (`Jim<div style="color:red; font-style:italic">Vice President</div>`) }, 'Mike', 'VP'],
+      ['Alice', 'Mike', ''],
+      ['Bob', 'Jim', 'Bob Sponge'],
+      ['Carol', 'Bob', '']
+    ]as any[][],
+  };
+        </textarea>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

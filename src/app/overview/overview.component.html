@@ -1,0 +1,55 @@
+<div class="Container">
+  <div class="Row">
+    <div class="Col-12 Col-lg-12">
+      <div class="Card Card-body" style="margin-bottom: 25rem">
+        <h4 class="Card-title">Lootstrap Angular <span class="Badge Bg-info">Overview</span></h4>
+
+        <div class="Alert Alert-outline MY-3" role="alert">
+          <a target="_blank" href="{{Package.npm}}">
+            <img class="MB-2 ME-2" alt="npm" src="{{Package.Host}}npm/v/{{Package.Name}}{{Package.Style}}">
+          </a>
+          <img class="MB-2 ME-2" alt="npm bundle size"
+               src="{{Package.Host}}bundlephobia/minzip/{{Package.Name}}{{Package.Style}}">
+          <hr>
+          <img class="MB-2 ME-2" alt="npm" src="{{Package.Host}}npm/dw/{{Package.Name}}{{Package.Style}}">
+          <img class="MB-2 ME-2" alt="npm" src="{{Package.Host}}npm/dm/{{Package.Name}}{{Package.Style}}">
+          <img class="MB-2 ME-2" alt="npm" src="{{Package.Host}}npm/dy/{{Package.Name}}{{Package.Style}}">
+          <img class="MB-2 ME-2" alt="npm" src="{{Package.Host}}npm/dt/{{Package.Name}}{{Package.Style}}">
+        </div>
+
+        <p class="Fg-muted">app.module.ts</p>
+        <textarea class="MT-2 MB-3" Highlighter [Lang]="'typescript'">
+import { GoogleChartsModule } from 'angular-google-charts';
+
+@NgModule({
+  ...
+  imports: [
+    ...
+    GoogleChartsModule,
+    ...
+  ],
+  ...
+})
+export class AppModule {}
+  </textarea>
+        <p class="Fg-muted">app.config.ts</p>
+        <textarea class="MT-2 MB-3" Highlighter [Lang]="'typescript'">
+import {provideGoogleCharts} from "@qrsln/google-charts-angular";
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    // ...
+    provideGoogleCharts({
+      version: 'current',
+      safeMode: true,
+      mapsApiKey: 'YOUR_API_KEY_HERE'
+    }),
+  ]
+};
+  </textarea>
+
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -75,7 +75,6 @@ export class AppComponent implements OnInit {
           {Data: r.concat('VegaChart'), Content: {Text: 'VegaChart', Icon: 'fa-solid fa-layer-group',},},
           {Data: r.concat('WaterfallCharts'), Content: {Text: 'Waterfall Charts', Icon: 'fa-solid fa-layer-group',},},
           {Data: r.concat('WordTrees'), Content: {Text: 'Word Trees', Icon: 'fa-solid fa-layer-group',},},
-          {Data: r.concat('MiscellaneousExamples'), Content: {Text: 'Miscellaneous Examples', Icon: 'fa-solid fa-layer-group',},},
         ]
       } as TreeItem,
       {
@@ -101,37 +100,13 @@ export class AppComponent implements OnInit {
     const pathList = url.split('/');
     // console.log(pathList, pathList[2]);
 
-    const IsLootstrap = pathList.indexOf('Lootstrap-angular') > -1;
-    const IsTooltip = pathList.indexOf('NgTooltip') > -1;
-    const IsMapper = pathList.indexOf('NgMapper') > -1;
-    const IsHighlighter = pathList.indexOf('NgHighlighter') > -1;
+    const ChartTypes = this.TreeItems.find(x => x.Content.Text === 'Chart Types');
 
-    const Lootstrap = this.TreeItems.find(x => x.Content.Text === 'Lootstrap-angular');
-    const Tooltip = this.TreeItems.find(x => x.Content.Text === 'Tooltip');
-    const Mapper = this.TreeItems.find(x => x.Content.Text === 'Mapper');
-    const Highlighter = this.TreeItems.find(x => x.Content.Text === 'Highlighter');
-
-    if (Lootstrap) {
-      // Lootstrap.Expanded = IsLootstrap;
-      Lootstrap.Checked = url === '/Lootstrap-angular/Overview';
-      // const selected = LootBox.Children.find(x => x.Text == pathList[2]);
-      const selected = Lootstrap.Children.find(x => '/' + x.Data == url);
+    if (ChartTypes) {
+      const selected = ChartTypes.Children.find(x =>   x.Data == url);
       if (selected) {
         selected.Checked = true;
       }
-    }
-
-    if (Tooltip) {
-      // Tooltip.Expanded = IsTooltip;
-      Tooltip.Checked = Tooltip.Data == url;
-    }
-    if (Mapper) {
-      // Mapper.Expanded = IsMapper;
-      Mapper.Checked = Mapper.Data == url;
-    }
-    if (Highlighter) {
-      // Highlighter.Expanded = IsHighlighter;
-      Highlighter.Checked = Highlighter.Data == url;
     }
   }
 

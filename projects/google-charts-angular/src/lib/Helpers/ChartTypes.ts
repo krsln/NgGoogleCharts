@@ -26,6 +26,8 @@ const ChartTypesToPackages = {
   [ChartType.Table]: 'table',
   [ChartType.Timeline]: 'timeline',
   [ChartType.TreeMap]: 'treemap',
+  [ChartType.TrendLines]: 'corechart',
+  [ChartType.VegaChart]: 'vegachart',
   [ChartType.WordTree]: 'wordtree'
 };
 

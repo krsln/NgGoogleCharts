@@ -48,7 +48,7 @@ export const appConfig: ApplicationConfig = {
     provideGoogleCharts({
       version: 'current',
       safeMode: true,
-      mapsApiKey: 'your-api-key'
+      mapsApiKey: 'YOUR_API_KEY_HERE'
     }),
   ]
 };

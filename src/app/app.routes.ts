@@ -22,14 +22,15 @@ import {TimelinesComponent} from "./Components/timelines/timelines.component";
 import {TreeMapChartsComponent} from "./Components/tree-map-charts/tree-map-charts.component";
 import {TrendlinesComponent} from "./Components/trendlines/trendlines.component";
 import {VegaChartComponent} from "./Components/vega-chart/vega-chart.component";
-import {WaterfallChartsComponent} from "./Components/waterfall-charts/waterfall-charts.component";
 import {WordTreesComponent} from "./Components/word-trees/word-trees.component";
-import {MiscellaneousExamplesComponent} from "./Components/miscellaneous-examples/miscellaneous-examples.component";
 import {ScatterChartsComponent} from "./Components/scatter-charts/scatter-charts.component";
 import {SteppedAreaChartsComponent} from "./Components/stepped-area-charts/stepped-area-charts.component";
 import {AppComponent} from "./app.component";
+import {OverviewComponent} from "./overview/overview.component";
 
 export const routes: Routes = [
+  {path: 'Overview', data: {breadcrumb: 'Overview'}, component: OverviewComponent},
+
   {path: 'AreaCharts', component: AreaChartsComponent},
   {path: 'BarCharts', component: BarChartsComponent},
   {path: 'BubbleCharts', component: BubbleChartsComponent},
@@ -38,7 +39,7 @@ export const routes: Routes = [
   {path: 'ColumnCharts', component: ColumnChartsComponent},
   {path: 'ComboCharts', component: ComboChartsComponent},
   {path: 'DiffCharts', component: DiffChartsComponent},
-  {path: 'DonutCharts', data: {}, component: PieChartsComponent}, // todo: redirect pieChart#donut
+  {path: 'DonutCharts', data: {}, component: PieChartsComponent}, // todo: redirect PieCharts#Donut
   {path: 'GanttCharts', component: GanttChartsComponent},
   {path: 'GaugeCharts', component: GaugeChartsComponent},
   {path: 'GeoCharts', component: GeoChartsComponent},
@@ -56,13 +57,12 @@ export const routes: Routes = [
   {path: 'TreeMapCharts', component: TreeMapChartsComponent},
   {path: 'Trendlines', component: TrendlinesComponent},
   {path: 'VegaChart', component: VegaChartComponent},
-  {path: 'WaterfallCharts', component: WaterfallChartsComponent},
+  {path: 'WaterfallCharts', component: CandlestickChartsComponent}, // todo: redirect CandlestickCharts#Waterfall
   {path: 'WordTrees', component: WordTreesComponent},
-  {path: 'MiscellaneousExamples', component: MiscellaneousExamplesComponent},
 
   {
     path: '', component: AppComponent, children: [
-      {path: '', redirectTo: '/AreaCharts', pathMatch: 'full'}
+      {path: '', redirectTo: '/Overview', pathMatch: 'full'}
     ]
   },
 

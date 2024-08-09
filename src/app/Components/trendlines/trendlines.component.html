@@ -1,1 +1,79 @@
-<p>trendlines works!</p>
+<div class="Container">
+  <div class="Row">
+    <div class="Col-12 Col-lg-12">
+
+      <div class="Card Card-body">
+        <h3 class="Card-title">Trendlines</h3>
+        <a href="https://developers.google.com/chart/interactive/docs/gallery/trendlines" target="_blank">Google Charts</a>
+      </div>
+
+      <div class="Card Card-body">
+        <h4 class="Card-title">Linear trendlines</h4>
+        <GoogleChart style="width: 100%; height: 500px;"
+                     [type]="linear.type" [options]="linear.options"
+                     [columns]="linear.columns" [data]="linear.data"></GoogleChart>
+        <div class="MB-2">
+      <textarea Highlighter [Lang]="'html'">
+        <GoogleChart style="width: 100%; height: 500px;"
+                     [type]="linear.type" [options]="linear.options"
+                     [columns]="linear.columns" [data]="linear.data"></GoogleChart>
+      </textarea>
+        </div>
+        <div class="MB-2">
+        <textarea Highlighter [Lang]="'typescript'">
+  linear = {
+    type: ChartType.ScatterChart,
+    options: {
+      title: 'Age of sugar maples vs. trunk diameter, in inches',
+      hAxis: {title: 'Diameter'},
+      vAxis: {title: 'Age'},
+      legend: 'none',
+      trendlines: { 0: {} }    // Draw a trendline for data series 0.
+    },
+    columns: ['Diameter', 'Age'],
+    data: [
+      [8, 37], [4, 19.5], [11, 52], [4, 22], [3, 16.5], [6.5, 32.8], [14, 72]
+    ],
+  };
+        </textarea>
+        </div>
+
+        <h4 class="Card-title">Exponential trendlines</h4>
+        <GoogleChart style="width: 100%; height: 500px;"
+                     [type]="exponential.type" [options]="exponential.options"
+                     [columns]="exponential.columns" [data]="exponential.data"></GoogleChart>
+        <div class="MB-2">
+      <textarea Highlighter [Lang]="'html'">
+        <GoogleChart style="width: 100%; height: 500px;"
+                     [type]="exponential.type" [options]="exponential.options"
+                     [columns]="exponential.columns" [data]="exponential.data"></GoogleChart>
+      </textarea>
+        </div>
+        <div class="MB-2">
+        <textarea Highlighter [Lang]="'typescript'">
+  exponential = {
+    type: ChartType.ScatterChart,
+    options: {
+      title: 'Descendants by Generation',
+      hAxis: {title: 'Generation', minValue: 0, maxValue: 3},
+      vAxis: {title: 'Descendants', minValue: 0, maxValue: 2100},
+      trendlines: {
+        0: {
+          type: 'exponential',
+          visibleInLegend: true,
+          color: 'green',
+        }
+      }
+    },
+    columns: ['Generation', 'Descendants'],
+    data: [
+      [0, 1], [1, 33], [2, 269], [3, 2013]
+    ],
+  };
+        </textarea>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

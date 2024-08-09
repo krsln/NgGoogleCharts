@@ -1,1 +1,93 @@
-<p>line-charts works!</p>
+<div class="Container">
+  <div class="Row">
+    <div class="Col-12 Col-lg-12">
+
+      <div class="Card Card-body">
+        <h3 class="Card-title">Line Chart</h3>
+        <a href="https://developers.google.com/chart/interactive/docs/gallery/linechart" target="_blank">Google Charts</a>
+      </div>
+
+      <div class="Card Card-body">
+        <h4 class="Card-title">Curving the Lines</h4>
+        <GoogleChart style="width: 100%; height: 500px;"
+                     [type]="simple.type" [options]="simple.options"
+                     [columns]="simple.columns" [data]="simple.data"></GoogleChart>
+        <div class="MB-2">
+      <textarea Highlighter [Lang]="'html'">
+        <GoogleChart style="width: 100%; height: 500px;"
+                     [type]="simple.type" [options]="simple.options"
+                     [columns]="simple.columns" [data]="simple.data"></GoogleChart>
+      </textarea>
+        </div>
+        <div class="MB-2">
+        <textarea Highlighter [Lang]="'typescript'">
+  simple = {
+    type: ChartType.LineChart,
+    options: {
+      title: 'Company Performance',
+      curveType: 'function',
+      legend: { position: 'bottom' }
+    },
+    columns: ['Year', 'Sales', 'Expenses'],
+    data: [
+      ['2004',  1000,      400],
+      ['2005',  1170,      460],
+      ['2006',  660,       1120],
+      ['2007',  1030,      540]
+    ],
+  };
+        </textarea>
+        </div>
+        <h4 class="Card-title">Creating Material Line Charts</h4>
+        <GoogleChart style="width: 100%; height: 500px;"
+                     [type]="material.type" [options]="material.options"
+                     [columns]="material.columns" [data]="material.data"></GoogleChart>
+        <div class="MB-2">
+      <textarea Highlighter [Lang]="'html'">
+        <GoogleChart style="width: 100%; height: 500px;"
+                     [type]="material.type" [options]="material.options"
+                     [columns]="material.columns" [data]="material.data"></GoogleChart>
+      </textarea>
+        </div>
+        <div class="MB-2">
+        <textarea Highlighter [Lang]="'typescript'">
+  material = {
+    type: ChartType.LineChart,
+    options: {
+      chart: {
+        title: 'Box Office Earnings in First Two Weeks of Opening',
+        subtitle: 'in millions of dollars (USD)'
+      },
+      width: 900,
+      height: 500
+    },
+    columns: [
+      {type: 'number', label: 'Day'},
+      {type: 'number', label: 'Guardians of the Galaxy'},
+      {type: 'number', label: 'The Avengers'},
+      {type: 'number', label: 'Transformers: Age of Extinction'},
+    ],
+    data: [
+      [1,  37.8, 80.8, 41.8],
+      [2,  30.9, 69.5, 32.4],
+      [3,  25.4,   57, 25.7],
+      [4,  11.7, 18.8, 10.5],
+      [5,  11.9, 17.6, 10.4],
+      [6,   8.8, 13.6,  7.7],
+      [7,   7.6, 12.3,  9.6],
+      [8,  12.3, 29.2, 10.6],
+      [9,  16.9, 42.9, 14.8],
+      [10, 12.8, 30.9, 11.6],
+      [11,  5.3,  7.9,  4.7],
+      [12,  6.6,  8.4,  5.2],
+      [13,  4.8,  6.3,  3.6],
+      [14,  4.2,  6.2,  3.4]
+    ],
+  };
+        </textarea>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

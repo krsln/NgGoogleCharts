@@ -1,1 +1,111 @@
-<p>intervals works!</p>
+<div class="Container">
+  <div class="Row">
+    <div class="Col-12 Col-lg-12">
+
+      <div class="Card Card-body">
+        <h3 class="Card-title">Intervals</h3>
+        <a href="https://developers.google.com/chart/interactive/docs/gallery/intervals" target="_blank">Google Charts</a>
+      </div>
+
+      <div class="Card Card-body">
+        <h4 class="Card-title">Line Intervals</h4>
+        <GoogleChart style="width: 100%; height: 500px"
+                     [type]="default.type" [options]="default.options"
+                     [columns]="default.columns" [data]="default.data"></GoogleChart>
+        <div class="MB-2">
+      <textarea Highlighter [Lang]="'html'">
+        <GoogleChart style="width: 100%; height: 500px"
+                     [type]="default.type" [options]="default.options"
+                     [columns]="default.columns" [data]="default.data"></GoogleChart>
+      </textarea>
+        </div>
+        <div class="MB-2">
+        <textarea Highlighter [Lang]="'typescript'">
+  simple = {
+    type: ChartType.LineChart,
+    options: {
+      title: 'Line intervals, default',
+      curveType: 'function',
+      lineWidth: 4,
+      intervals: { 'style':'line' },
+      legend: 'none'
+    },
+    columns:
+      [
+        {type: 'number', id: 'x'},
+        {type: 'number', id: 'values'},
+        {id: 'i0', type: 'number', role: 'interval'},
+        {id: 'i1', type: 'number', role: 'interval'},
+        {id: 'i2', type: 'number', role: 'interval'},
+        {id: 'i2', type: 'number', role: 'interval'},
+        {id: 'i2', type: 'number', role: 'interval'},
+        {id: 'i2', type: 'number', role: 'interval'}
+      ],
+
+    data: [
+      [1, 100, 90, 110, 85, 96, 104, 120],
+      [2, 120, 95, 130, 90, 113, 124, 140],
+      [3, 130, 105, 140, 100, 117, 133, 139],
+      [4, 90, 85, 95, 85, 88, 92, 95],
+      [5, 70, 74, 63, 67, 69, 70, 72],
+      [6, 30, 39, 22, 21, 28, 34, 40],
+      [7, 80, 77, 83, 70, 77, 85, 90],
+      [8, 100, 90, 110, 85, 95, 102, 110]
+    ],
+  };
+        </textarea>
+        </div>
+
+        <GoogleChart style="width: 100%; height: 500px"
+                     [type]="default.type" [options]="options_lines"
+                     [columns]="default.columns" [data]="default.data"></GoogleChart>
+        <div class="MB-2">
+        <textarea Highlighter [Lang]="'typescript'">
+  options_lines = {
+    title: 'Line intervals, tailored',
+    lineWidth: 4,
+    curveType: 'function',
+    interval: {
+      'i0': {'style': 'line', 'color': '#D3362D', 'lineWidth': 0.5},
+      'i1': {'style': 'line', 'color': '#F1CA3A', 'lineWidth': 1},
+      'i2': {'style': 'line', 'color': '#5F9654', 'lineWidth': 2},
+    },
+    legend: 'none',
+  };
+        </textarea>
+        </div>
+
+        <h5>Bar Intervals</h5>
+        <GoogleChart style="width: 100%; height: 500px"
+                     [type]="default.type" [options]="options_bars"
+                     [columns]="default.columns" [data]="default.data"></GoogleChart>
+        <div class="MB-2">
+        <textarea Highlighter [Lang]="'typescript'">
+  options_bars = {
+    title: 'Bars, default',
+    curveType: 'function',
+    series: [{'color': '#D9544C'}],
+    intervals: {style: 'bars'},
+    legend: 'none',
+  };
+        </textarea>
+        </div>
+
+        <h5>Box Intervals</h5>
+        <GoogleChart style="width: 100%; height: 500px"
+                     [type]="default.type" [options]="options_box"
+                     [columns]="default.columns" [data]="default.data"></GoogleChart>
+        <div class="MB-2">
+        <textarea Highlighter [Lang]="'typescript'">
+  options_box = {
+    series: [{'color': '#1A8763'}],
+    intervals: {style: 'boxes'},
+    legend: 'none',
+  };
+        </textarea>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

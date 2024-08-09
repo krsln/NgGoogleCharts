@@ -1,1 +1,51 @@
-<p>maps works!</p>
+<div class="Container">
+  <div class="Row">
+    <div class="Col-12 Col-lg-12">
+
+      <div class="Card Card-body">
+        <h3 class="Card-title">Visualization: Map</h3>
+        <a href="https://developers.google.com/chart/interactive/docs/gallery/map" target="_blank">Google Charts</a>
+      </div>
+
+      <div class="Card Card-body">
+        <h4 class="Card-title">Named Locations</h4>
+        Note: you will need to get a mapsApiKey for your project.
+        <GoogleChart style="width: 100%;"
+                     [type]="simple.type" [options]="simple.options"
+                     [columns]="simple.columns" [data]="simple.data"></GoogleChart>
+        <div class="MB-2">
+      <textarea Highlighter [Lang]="'html'">
+        <GoogleChart style="width: 100%;"
+                     [type]="simple.type" [options]="simple.options"
+                     [columns]="simple.columns" [data]="simple.data"></GoogleChart>
+      </textarea>
+        </div>
+        <div class="MB-2">
+        <textarea Highlighter [Lang]="'typescript'">
+  simple = {
+    type: ChartType.Map,
+    options: {
+      showTooltip: true,
+      showInfoWindow: true
+    },
+    columns: ['Country', 'Population'],
+    data: [
+      ['China', 'China: 1,363,800,000'],
+      ['India', 'India: 1,242,620,000'],
+      ['US', 'US: 317,842,000'],
+      ['Indonesia', 'Indonesia: 247,424,598'],
+      ['Brazil', 'Brazil: 201,032,714'],
+      ['Pakistan', 'Pakistan: 186,134,000'],
+      ['Nigeria', 'Nigeria: 173,615,000'],
+      ['Bangladesh', 'Bangladesh: 152,518,015'],
+      ['Russia', 'Russia: 146,019,512'],
+      ['Japan', 'Japan: 127,120,000']
+    ],
+  };
+        </textarea>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
