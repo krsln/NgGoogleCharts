@@ -13,8 +13,7 @@ export const appConfig: ApplicationConfig = {
     provideGoogleCharts({
       version: 'current',
       // safeMode: true,
-      mapsApiKey: 'AIzaSyDHHc1Fsf__pnkzFPbWRSNUAlCqq7UFNuU'
-      // mapsApiKey: 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY' // from https://developers.google.com/chart/interactive/docs/gallery/geochart
+      mapsApiKey: 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY' // from https://developers.google.com/chart/interactive/docs/gallery/geochart
     }),
   ]
 };
