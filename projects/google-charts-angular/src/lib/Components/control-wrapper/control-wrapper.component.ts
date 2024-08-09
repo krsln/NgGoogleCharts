@@ -16,7 +16,7 @@ import {ScriptLoaderService} from "../../Services/script-loader.service";
 import {generateRandomId} from "../../Helpers";
 
 @Component({
-  selector: 'ql-control-wrapper,ControlWrapper',
+  selector: 'ql-control-wrapper, ControlWrapper',
   template: '',
   host: { class: 'control-wrapper' },
   exportAs: 'controlWrapper',

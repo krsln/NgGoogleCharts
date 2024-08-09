@@ -29,12 +29,12 @@ import {DashboardComponent} from "../dashboard/dashboard.component";
 import {getPackageForChart} from "../../Helpers/ChartTypes";
 
 @Component({
-  selector: 'ql-google-chart,GoogleChart',
-  template: '',
-  styles: [':host { width: fit-content; display: block; }'],
-  host: {class: 'google-chart'},
-  exportAs: 'googleChart',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  selector: 'ql-google-chart, NgGoogleChart, GoogleChart',  // The selector to use this component in templates, e.g., <GoogleChart></GoogleChart>
+  template: '',  // Currently, the template is empty; you would put your HTML content here.
+  styles: [':host { width: fit-content; display: block; }'],  // Host element styling
+  host: { class: 'google-chart' },  // Adds a CSS class to the host element
+  exportAs: 'GoogleChart',  // Allows the component to be referenced in a template with a template reference variable, e.g., #GoogleChart="GoogleChart"
+  changeDetection: ChangeDetectionStrategy.OnPush  // Improves performance by only checking for changes when inputs change
 })
 export class GoogleChartComponent implements ChartBase, OnInit, OnChanges, OnDestroy {
   /**

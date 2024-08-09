@@ -20,7 +20,7 @@ import {ScriptLoaderService} from "../../Services/script-loader.service";
 import {DataTableService} from "../../Services/data-table.service";
 
 @Component({
-  selector: 'ql-dashboard,Dashboard',
+  selector: 'ql-dashboard, Dashboard',
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush,
   exportAs: 'dashboard',
