@@ -5,11 +5,12 @@ import {NotifyModule} from "@qrsln/lootstrap-angular/Libs/Notify";
 import {SidenavModule} from "@qrsln/lootstrap-angular/Libs/Sidenav";
 import {TreeItem, TreeViewModule} from "@qrsln/lootstrap-angular/Libs/TreeView";
 import {BreadcrumbModule} from "@qrsln/lootstrap-angular/Libs/Breadcrumb";
+import {GoogleChartsModule} from "GoogleChartsAngular";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterModule, ThemeModule, NotifyModule, SidenavModule, TreeViewModule, BreadcrumbModule],
+  imports: [RouterModule, ThemeModule, NotifyModule, SidenavModule, TreeViewModule, BreadcrumbModule, GoogleChartsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   encapsulation: ViewEncapsulation.None
